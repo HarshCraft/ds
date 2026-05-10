@@ -1,0 +1,104 @@
+Output(Assignment)(For Powershell):
+
+Terminal 1
+PS C:\Users\DSFinal\DSFinal\DSFinal\Assignment3> $env:MPJ_HOME="C:\Users\DSFinal\DSFinal\DSFinal\Assignment3\mpj-v0_44"
+PS C:\Users\DSFinal\DSFinal\DSFinal\Assignment3> $env:PATH="$env:MPJ_HOME\bin;$env:PATH"
+PS C:\Users\DSFinal\DSFinal\DSFinal\Assignment3> javac -cp "$env:MPJ_HOME\lib\mpj.jar" ArrSum.java
+PS C:\Users\DSFinal\DSFinal\DSFinal\Assignment3> ls
+
+
+    Directory: C:\Users\DSFinal\DSFinal\DSFinal\Assignment3
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2/22/2026  11:33 PM                mpj-v0_44
+-a----         2/22/2026  11:48 PM           1826 ArrSum.class
+------          4/7/2025   4:56 AM           2193 ArrSum.java
+------         4/25/2024   1:18 AM        7501941 mpj-v0_44.tar
+                                                  .gz
+
+PS C:\Users\DSFinal\DSFinal\DSFinal\Assignment3> mpjrun.bat -np 1 -cp . ArrSum
+MPJ Express (0.44) is started in the multicore configuration
+Enter 5 elements
+Element 0        = 0
+Element 1        = 1
+Element 2        = 2
+Element 3        = 3
+Element 4        = 4
+Intermediate sum at process 0 is 10
+Final sum : 10
+PS C:\Users\DSFinal\DSFinal\DSFinal\Assignment3> mpjrun.bat -np 2 -cp . ArrSum
+MPJ Express (0.44) is started in the multicore configuration
+Enter 10 elements
+Element 0        = 0
+Element 1        = 1
+Element 2        = 2
+Element 3        = 3
+Element 4        = 4
+Element 5        = 5
+Element 6        = 6
+Element 7        = 7
+Element 8        = 8
+Element 9        = 9
+Intermediate sum at process 0 is 10
+Intermediate sum at process 1 is 35
+Final sum : 45
+
+
+
+Output(Assignment)(For Terminal/cmd):
+
+D:\DSFinal>cd Assignment3
+
+D:\DSFinal\Assignment3>set MPJ_HOME=D:\DSFinal\Assignment3\mpj-v0_44
+
+D:\DSFinal\Assignment3>set PATH=%MPJ_HOME%\bin;%PATH%
+
+D:\DSFinal\Assignment3>javac -cp "%MPJ_HOME%\lib\mpj.jar" ArrSum.java
+
+D:\DSFinal\Assignment3>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is B868-1499
+
+ Directory of D:\DSFinal\Assignment3
+
+03-05-2026  18:24    <DIR>          .
+03-05-2026  15:14    <DIR>          ..
+03-05-2026  18:24             1,826 ArrSum.class
+07-04-2025  04:56             2,193 ArrSum.java
+03-05-2026  15:13    <DIR>          mpj-v0_44
+25-04-2024  01:18         7,501,941 mpj-v0_44.tar.gz
+22-02-2026  23:54             1,684 Output.txt
+               4 File(s)      7,507,644 bytes
+               3 Dir(s)  234,685,247,488 bytes free
+
+D:\DSFinal\Assignment3>mpjrun.bat -np 1 -cp . ArrSum
+MPJ Express (0.44) is started in the multicore configuration
+Enter 5 elements
+Element 0        = 0
+Element 1        = 1
+Element 2        = 2
+Element 3        = 3
+Element 4        = 4
+Intermediate sum at process 0 is 10
+Final sum : 10
+
+D:\DSFinal\Assignment3>mpjrun.bat -np 2 -cp . ArrSum
+MPJ Express (0.44) is started in the multicore configuration
+Enter 10 elements
+Element 0        = 0
+Element 1        = 1
+Element 2        = 2
+Element 3        = 3
+Element 4        = 4
+Element 5        = 5
+Element 6        = 6
+Element 7        = 7
+Element 8        = 8
+Element 9        = 9
+Intermediate sum at process 0 is 10
+Intermediate sum at process 1 is 35
+Final sum : 45
+
+D:\DSFinal\Assignment3>

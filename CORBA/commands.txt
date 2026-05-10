@@ -1,0 +1,30 @@
+(Only works on Java 8 and below. Ensure JDK 8 is installed and in your PATH.)
+
+### Step 1: Compile the IDL and Java files
+idlj -fall ReverseModule.idl
+javac *.java ReverseModule/*.java
+
+### Step 2: Start the Name Server (ORB) 
+# This opens in a new window
+# In PowerShell:
+Start-Process orbd "-ORBInitialPort 1050"
+
+# In CMD:
+# start orbd -ORBInitialPort 1050
+
+### Step 3: Start the Server 
+# This opens in a new window
+# In PowerShell:
+Start-Process java "ReverseServer -ORBInitialPort 1050 -ORBInitialHost localhost"
+
+# In CMD:
+# start java ReverseServer -ORBInitialPort 1050 -ORBInitialHost localhost
+
+### Step 4: Run the Client
+# This runs in your current terminal window
+java ReverseClient -ORBInitialPort 1050 -ORBInitialHost localhost
+
+
+// After running the client:
+// 1. Enter a string when prompted.
+// 2. The result will be the reversed string from the server.
